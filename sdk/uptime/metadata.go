@@ -11,7 +11,7 @@ import (
 // ListMetadata returns list of all metadata
 func (bs *Betterstack) ListMetadata() (*models.Metadata, error) {
 	// TODO: query params
-	req, err := http.NewRequest(http.MethodGet, "/api/v2/metadata", nil)
+	req, err := http.NewRequest(http.MethodGet, "/api/v3/metadata", nil)
 	if err != nil {
 		return nil, err
 	}
@@ -32,7 +32,7 @@ func (bs *Betterstack) ListMetadata() (*models.Metadata, error) {
 
 // GetMetadataRecord returns a single metadata record.
 func (bs *Betterstack) GetMetadataRecord(metadataID string) (*models.MetadataRecord, error) {
-	req, err := http.NewRequest(http.MethodGet, "/api/v2/metadata/"+metadataID, nil)
+	req, err := http.NewRequest(http.MethodGet, "/api/v3/metadata/"+metadataID, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func (bs *Betterstack) CreateMetadataRecord(bodyParams models.MetadataRecordReqB
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPost, "/api/v2/metadata", bytes.NewReader(requestBody))
+	req, err := http.NewRequest(http.MethodPost, "/api/v3/metadata", bytes.NewReader(requestBody))
 	if err != nil {
 		return nil, err
 	}
@@ -92,7 +92,7 @@ func (bs *Betterstack) UpdateMetadataRecord(metadataID string, bodyParams models
 		return nil, err
 	}
 
-	req, err := http.NewRequest(http.MethodPatch, "/api/v2/metadata/"+metadataID, bytes.NewReader(requestBody))
+	req, err := http.NewRequest(http.MethodPatch, "/api/v3/metadata/"+metadataID, bytes.NewReader(requestBody))
 	if err != nil {
 		return nil, err
 	}
@@ -117,7 +117,7 @@ func (bs *Betterstack) UpdateMetadataRecord(metadataID string, bodyParams models
 
 // DeleteMetadataRecord permanently deletes an existing metadata record.
 func (bs *Betterstack) DeleteMetadataRecord(metadataID string) error {
-	req, err := http.NewRequest(http.MethodDelete, "/api/v2/metadata/"+metadataID, nil)
+	req, err := http.NewRequest(http.MethodDelete, "/api/v3/metadata/"+metadataID, nil)
 	if err != nil {
 		return err
 	}

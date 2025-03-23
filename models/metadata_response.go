@@ -15,6 +15,17 @@ type MetadataRecord struct {
 }
 
 type MetadataAttributes struct {
-	Key   string `json:"key,omitempty"`
-	Value string `json:"value,omitempty"`
+	Key       string          `json:"key,omitempty"`
+	Values    []MetadataValue `json:"values,omitempty"`
+	TeamName  string          `json:"team_name,omitempty"`
+	OwnerID   string          `json:"owner_id,omitempty"`
+	OwnerType string          `json:"owner_type,omitempty"`
+}
+
+// MetadataValue represents a value in the metadata attributes
+type MetadataValue struct {
+	Type   string `json:"type,omitempty"`
+	Value  string `json:"value,omitempty"`   // Used for String type values
+	ItemID int    `json:"item_id,omitempty"` // Used for Schedule type values
+	Name   string `json:"name,omitempty"`    // Used for Schedule type values
 }
