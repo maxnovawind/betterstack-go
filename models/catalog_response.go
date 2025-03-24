@@ -4,8 +4,8 @@ import "time"
 
 // CatalogRelationResponse represents a response containing catalog relation data
 type CatalogRelationResponse struct {
-	Data       CatalogRelation `json:"data,omitempty"`
-	Pagination *Pagination     `json:"pagination,omitempty"`
+	Data       []CatalogRelation `json:"data,omitempty"`
+	Pagination *Pagination       `json:"pagination,omitempty"`
 }
 
 // CatalogRelationsResponse represents a response containing a list of catalog relations
