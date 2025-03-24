@@ -50,7 +50,7 @@ func (bs *Betterstack) ListCatalogRelations(ctx context.Context, page, perPage i
 }
 
 // GetCatalogRelation gets a specific catalog relation by ID
-func (bs *Betterstack) GetCatalogRelation(ctx context.Context, relationID string) (*models.CatalogRelationResponse, error) {
+func (bs *Betterstack) GetCatalogRelation(ctx context.Context, relationID string) (*models.SingleCatalogRelationResponse, error) {
 	endpoint := fmt.Sprintf("/api/v2/catalog/relations/%s", relationID)
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
 	if err != nil {
@@ -62,7 +62,7 @@ func (bs *Betterstack) GetCatalogRelation(ctx context.Context, relationID string
 		return nil, err
 	}
 
-	response := &models.CatalogRelationResponse{}
+	response := &models.SingleCatalogRelationResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -72,7 +72,7 @@ func (bs *Betterstack) GetCatalogRelation(ctx context.Context, relationID string
 }
 
 // CreateCatalogRelation creates a new catalog relation
-func (bs *Betterstack) CreateCatalogRelation(ctx context.Context, params *models.CreateCatalogRelationRequest) (*models.CatalogRelationResponse, error) {
+func (bs *Betterstack) CreateCatalogRelation(ctx context.Context, params *models.CreateCatalogRelationRequest) (*models.SingleCatalogRelationResponse, error) {
 	requestBody, err := json.Marshal(params)
 	if err != nil {
 		return nil, err
@@ -88,7 +88,7 @@ func (bs *Betterstack) CreateCatalogRelation(ctx context.Context, params *models
 		return nil, err
 	}
 
-	response := &models.CatalogRelationResponse{}
+	response := &models.SingleCatalogRelationResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -98,7 +98,7 @@ func (bs *Betterstack) CreateCatalogRelation(ctx context.Context, params *models
 }
 
 // UpdateCatalogRelation updates an existing catalog relation
-func (bs *Betterstack) UpdateCatalogRelation(ctx context.Context, relationID string, params *models.UpdateCatalogRelationRequest) (*models.CatalogRelationResponse, error) {
+func (bs *Betterstack) UpdateCatalogRelation(ctx context.Context, relationID string, params *models.UpdateCatalogRelationRequest) (*models.SingleCatalogRelationResponse, error) {
 	requestBody, err := json.Marshal(params)
 	if err != nil {
 		return nil, err
@@ -115,7 +115,7 @@ func (bs *Betterstack) UpdateCatalogRelation(ctx context.Context, relationID str
 		return nil, err
 	}
 
-	response := &models.CatalogRelationResponse{}
+	response := &models.SingleCatalogRelationResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -180,7 +180,7 @@ func (bs *Betterstack) ListCatalogAttributes(ctx context.Context, relationID str
 }
 
 // GetCatalogAttribute gets a specific catalog attribute
-func (bs *Betterstack) GetCatalogAttribute(ctx context.Context, relationID, attributeID string) (*models.CatalogAttributeResponse, error) {
+func (bs *Betterstack) GetCatalogAttribute(ctx context.Context, relationID, attributeID string) (*models.SingleCatalogAttributeResponse, error) {
 	endpoint := fmt.Sprintf("/api/v2/catalog/relations/%s/attributes/%s", relationID, attributeID)
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
 	if err != nil {
@@ -192,7 +192,7 @@ func (bs *Betterstack) GetCatalogAttribute(ctx context.Context, relationID, attr
 		return nil, err
 	}
 
-	response := &models.CatalogAttributeResponse{}
+	response := &models.SingleCatalogAttributeResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -202,7 +202,7 @@ func (bs *Betterstack) GetCatalogAttribute(ctx context.Context, relationID, attr
 }
 
 // CreateCatalogAttribute creates a new catalog attribute
-func (bs *Betterstack) CreateCatalogAttribute(ctx context.Context, relationID string, params *models.CreateCatalogAttributeRequest) (*models.CatalogAttributeResponse, error) {
+func (bs *Betterstack) CreateCatalogAttribute(ctx context.Context, relationID string, params *models.CreateCatalogAttributeRequest) (*models.SingleCatalogAttributeResponse, error) {
 	requestBody, err := json.Marshal(params)
 	if err != nil {
 		return nil, err
@@ -219,7 +219,7 @@ func (bs *Betterstack) CreateCatalogAttribute(ctx context.Context, relationID st
 		return nil, err
 	}
 
-	response := &models.CatalogAttributeResponse{}
+	response := &models.SingleCatalogAttributeResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -229,7 +229,7 @@ func (bs *Betterstack) CreateCatalogAttribute(ctx context.Context, relationID st
 }
 
 // UpdateCatalogAttribute updates an existing catalog attribute
-func (bs *Betterstack) UpdateCatalogAttribute(ctx context.Context, relationID, attributeID string, params *models.UpdateCatalogAttributeRequest) (*models.CatalogAttributeResponse, error) {
+func (bs *Betterstack) UpdateCatalogAttribute(ctx context.Context, relationID, attributeID string, params *models.UpdateCatalogAttributeRequest) (*models.SingleCatalogAttributeResponse, error) {
 	requestBody, err := json.Marshal(params)
 	if err != nil {
 		return nil, err
@@ -246,7 +246,7 @@ func (bs *Betterstack) UpdateCatalogAttribute(ctx context.Context, relationID, a
 		return nil, err
 	}
 
-	response := &models.CatalogAttributeResponse{}
+	response := &models.SingleCatalogAttributeResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -311,7 +311,7 @@ func (bs *Betterstack) ListCatalogRecords(ctx context.Context, relationID string
 }
 
 // GetCatalogRecord gets a specific catalog record
-func (bs *Betterstack) GetCatalogRecord(ctx context.Context, relationID, recordID string) (*models.CatalogRecordResponse, error) {
+func (bs *Betterstack) GetCatalogRecord(ctx context.Context, relationID, recordID string) (*models.SingleCatalogRecordResponse, error) {
 	endpoint := fmt.Sprintf("/api/v2/catalog/relations/%s/records/%s", relationID, recordID)
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, endpoint, nil)
 	if err != nil {
@@ -323,7 +323,7 @@ func (bs *Betterstack) GetCatalogRecord(ctx context.Context, relationID, recordI
 		return nil, err
 	}
 
-	response := &models.CatalogRecordResponse{}
+	response := &models.SingleCatalogRecordResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -333,7 +333,7 @@ func (bs *Betterstack) GetCatalogRecord(ctx context.Context, relationID, recordI
 }
 
 // CreateCatalogRecord creates a new catalog record
-func (bs *Betterstack) CreateCatalogRecord(ctx context.Context, relationID string, params *models.CreateCatalogRecordRequest) (*models.CatalogRecordResponse, error) {
+func (bs *Betterstack) CreateCatalogRecord(ctx context.Context, relationID string, params *models.CreateCatalogRecordRequest) (*models.SingleCatalogRecordResponse, error) {
 	requestBody, err := json.Marshal(params)
 	if err != nil {
 		return nil, err
@@ -350,7 +350,7 @@ func (bs *Betterstack) CreateCatalogRecord(ctx context.Context, relationID strin
 		return nil, err
 	}
 
-	response := &models.CatalogRecordResponse{}
+	response := &models.SingleCatalogRecordResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err
@@ -387,7 +387,7 @@ func (bs *Betterstack) BatchCreateCatalogRecords(ctx context.Context, relationID
 }
 
 // UpdateCatalogRecord updates an existing catalog record
-func (bs *Betterstack) UpdateCatalogRecord(ctx context.Context, relationID, recordID string, params *models.UpdateCatalogRecordRequest) (*models.CatalogRecordResponse, error) {
+func (bs *Betterstack) UpdateCatalogRecord(ctx context.Context, relationID, recordID string, params *models.UpdateCatalogRecordRequest) (*models.SingleCatalogRecordResponse, error) {
 	requestBody, err := json.Marshal(params)
 	if err != nil {
 		return nil, err
@@ -401,10 +401,10 @@ func (bs *Betterstack) UpdateCatalogRecord(ctx context.Context, relationID, reco
 
 	body, err := bs.MakeAPIRequest(req)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("error updating catalog record: %w", err)
 	}
 
-	response := &models.CatalogRecordResponse{}
+	response := &models.SingleCatalogRecordResponse{}
 	err = json.Unmarshal(body, response)
 	if err != nil {
 		return nil, err

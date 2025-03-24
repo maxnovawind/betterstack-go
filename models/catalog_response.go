@@ -2,16 +2,16 @@ package models
 
 import "time"
 
-// CatalogRelationResponse represents a response containing catalog relation data
-type CatalogRelationResponse struct {
-	Data       []CatalogRelation `json:"data,omitempty"`
-	Pagination *Pagination       `json:"pagination,omitempty"`
-}
-
 // CatalogRelationsResponse represents a response containing a list of catalog relations
 type CatalogRelationsResponse struct {
 	Data       []CatalogRelation `json:"data,omitempty"`
 	Pagination *Pagination       `json:"pagination,omitempty"`
+}
+
+// SingleCatalogRelationResponse represents a response containing a single catalog relation
+type SingleCatalogRelationResponse struct {
+	Data       CatalogRelation `json:"data,omitempty"`
+	Pagination *Pagination     `json:"pagination,omitempty"`
 }
 
 // CatalogRelation represents a catalog relation
@@ -28,16 +28,16 @@ type CatalogRelationAttrs struct {
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }
 
-// CatalogAttributeResponse represents a response containing catalog attribute data
-type CatalogAttributeResponse struct {
-	Data       CatalogAttribute `json:"data,omitempty"`
-	Pagination *Pagination      `json:"pagination,omitempty"`
-}
-
 // CatalogAttributesResponse represents a response containing a list of catalog attributes
 type CatalogAttributesResponse struct {
 	Data       []CatalogAttribute `json:"data,omitempty"`
 	Pagination *Pagination        `json:"pagination,omitempty"`
+}
+
+// SingleCatalogAttributeResponse represents a response containing a single catalog attribute
+type SingleCatalogAttributeResponse struct {
+	Data       CatalogAttribute `json:"data,omitempty"`
+	Pagination *Pagination      `json:"pagination,omitempty"`
 }
 
 // CatalogAttribute represents a catalog attribute
@@ -54,16 +54,16 @@ type CatalogAttributeAttrs struct {
 	UpdatedAt time.Time `json:"updated_at,omitempty"`
 }
 
-// CatalogRecordResponse represents a response containing catalog record data
-type CatalogRecordResponse struct {
-	Data       CatalogRecord `json:"data,omitempty"`
-	Pagination *Pagination   `json:"pagination,omitempty"`
-}
-
 // CatalogRecordsResponse represents a response containing a list of catalog records
 type CatalogRecordsResponse struct {
 	Data       []CatalogRecord `json:"data,omitempty"`
 	Pagination *Pagination     `json:"pagination,omitempty"`
+}
+
+// SingleCatalogRecordResponse represents a response containing a single catalog record
+type SingleCatalogRecordResponse struct {
+	Data       CatalogRecord `json:"data,omitempty"`
+	Pagination *Pagination   `json:"pagination,omitempty"`
 }
 
 // CatalogRecord represents a catalog record
