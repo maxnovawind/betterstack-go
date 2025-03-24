@@ -26,8 +26,8 @@ type ResourceAttributes struct {
 }
 
 type StatusHistory struct {
-	Day                 string `json:"day,omitempty"`
-	Status              string `json:"status,omitempty"`
-	DowntimeDuration    int    `json:"downtime_duration,omitempty"`
+	Day                 string  `json:"day,omitempty"`
+	Status              string  `json:"status,omitempty"`
+	DowntimeDuration    float64 `json:"downtime_duration,omitempty"`
 	MaintenanceDuration string
 }
