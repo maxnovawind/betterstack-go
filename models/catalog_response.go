@@ -88,7 +88,7 @@ type CatalogRecordAttribute struct {
 
 // CatalogRecordAttributeRef references a catalog attribute by ID or name
 type CatalogRecordAttributeRef struct {
-	ID   string `json:"id,omitempty"`
+	ID   int    `json:"id,omitempty"`
 	Name string `json:"name,omitempty"`
 }
 
